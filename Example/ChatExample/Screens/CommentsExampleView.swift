@@ -73,6 +73,7 @@ struct CommentsExampleView: View {
                     print(message.text)
                 }
             }
+            .setAvailableInput(.textAndMedia)
             .showDateHeaders(false)
         }
         .navigationTitle("Comments example")

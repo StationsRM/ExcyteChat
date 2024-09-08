@@ -238,7 +238,7 @@ struct InputView: View {
                         .foregroundColor(theme.colors.sendButtonBackground)
                 }
                 Group {
-                    if state.canSend || availableInput == .textOnly {
+                    if !availableInput.isAudioAvailable || availableInput == .textOnly || state.canSend {
                         sendButton
                             .disabled(!state.canSend)
                     } else {
@@ -363,7 +363,7 @@ struct InputView: View {
         } label: {
             theme.images.inputView.arrowSend
                 .viewSize(48)
-                .circleBackground(theme.colors.sendButtonBackground)
+                .circleBackground( state.canSend ? theme.colors.sendButtonBackground : .gray )
         }
     }
 
